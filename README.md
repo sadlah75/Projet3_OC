@@ -8,7 +8,7 @@ Projet 3 dans le cadre de la formation Développeur Android - OpenClassrooms.
 L'application se propose d'afficher une liste de voisins, avec comme fonctionnalités, la possibilité d'afficher les détails d'un voisin et de l'ajouter comme favoris."
 
 
-## Status
+## Statut
 
 Projet en cours de validation ...
 
