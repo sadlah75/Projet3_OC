@@ -22,8 +22,8 @@ Cliquez sur le boutton code puis  copier le lien affiché dans 'https' ou downlo
 
 Lancer Android Studio ...
 Cliquer ensuite sur "Get from VCS" et laisser selectionné par défaut 'Git' dans le champ 'Version control.
-Coller ensuite l'url clonée dans le champ URL
+Coller ensuite l'url clonée dans le champ URL.
 Sélectionner le répertoire de destination puis cliquer sur "clone" puis patienter...l'application est en cours de compilation...
-Dans la barre d'outils, sélectionner le périphérique sur lequel executé l'application virtuel (emulateur) ou physique branché au pc et reconnu ... le nom du périp
-s'affiche
+Dans la barre d'outils, sélectionner le périphérique sur lequel executé l'application virtuel (emulateur) ou physique branché au pc et reconnu ... le nom du périphérique
+s'affiche.
 Enfin lancer l'éxecution de l'application en cliquant sur le bouton flèche verte ['>'] situé à coté du nom du périphérique.
