@@ -48,9 +48,14 @@ public class NeighbourServiceTest {
     @Test
     public void createNeighbourWithSuccess() {
         List<Neighbour> neighbours = service.getNeighbours();
-        Neighbour neighbourToAdd = new Neighbour();
+        Neighbour neighbourToAdd = new Neighbour(13,
+                "Hatem",
+                "https://i.pravatar.cc/150?u=a042581f3e39026702d",
+                "rue de Jules Verne",
+                "+33 12 34 56 78 90",
+                "Bonjour à tous ...");
         neighbours.add(neighbourToAdd);
-        assertEquals(13,neighbours.size());
+        assertEquals("Hatem",service.getNeighbourById(13).getName());
     }
 
     @Test
@@ -63,23 +68,55 @@ public class NeighbourServiceTest {
 
     @Test
     public void getFavoriteNeighboursWithSuccess() {
+        //On récupère la liste des voisins
         List<Neighbour> neighbours = service.getNeighbours();
-        Neighbour neighbourToAdd = new Neighbour();
-        neighbourToAdd.setFavorite(true);
+        /*
+            1- On crée un voisin avec un id 13
+            2- On lui affecte le statut de favoris
+            3- On l'ajoute à la liste des voisins
+         */
+        Neighbour neighbourToAdd = new Neighbour(13,
+                "Hatem",
+                "https://i.pravatar.cc/150?u=a042581f3e39026702d",
+                "rue de Jules Verne",
+                "+33 12 34 56 78 90",
+                "Bonjour à tous ...");
         neighbours.add(neighbourToAdd);
+        service.addFavoriteNeighbour(neighbourToAdd);
 
+        /*
+            1- on récupère de la liste des voisins, l'élèment d'Id=13 passé en
+            paramètre.
+            2- On vérifie qu'il s'agit bien de l'élèment ajouté précèdemment
+         */
         List<Neighbour> favoriteNeighbours = service.getFavoriteNeighbours();
-        assertEquals(1,favoriteNeighbours.size());
-
+        Neighbour neighbourToCheck = service.getNeighbourById(13);
+        assertTrue(favoriteNeighbours.contains(neighbourToCheck));
+        /* ou bien
+            assertEquals("Hatem",neighbourToCheck.getName());
+         */
     }
+
 
     @Test
     public void deleteFavoriteNeighbourWithSuccess() {
+        /* 1- On récupère le 1er élèment de la liste des Neighbours d'index 0
+           2- puis on l'ajoute à la liste des favoris
+           3- On vérifie que la liste des favoris contient bien l'élément ajouté et pas un autre
+        */
+        Neighbour neighbourToFavoris = service.getNeighbours().get(0);
+        service.addFavoriteNeighbour(neighbourToFavoris);
         List<Neighbour> favoriteNeighbours = service.getFavoriteNeighbours();
-        Neighbour neighbourToDelete = service.getNeighbours().get(0);
-        service.addFavoriteNeighbour(neighbourToDelete);
-        favoriteNeighbours = service.getFavoriteNeighbours();
-        service.deleteFavoriteNeighbour(neighbourToDelete);
+        assertTrue(favoriteNeighbours.contains(neighbourToFavoris));
+
+        /*
+            1- On supprime l'élément récemment ajouté dans les favoris
+            2- Puis on vérifie que la liste des favoris ne contient plus cet élément
+         */
+        service.deleteFavoriteNeighbour(neighbourToFavoris);
+        List<Neighbour> favoriteNeighboursToCheck = service.getFavoriteNeighbours();
+        assertFalse(favoriteNeighboursToCheck.contains(neighbourToFavoris));
+
     }
 
 }

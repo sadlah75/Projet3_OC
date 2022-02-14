@@ -83,4 +83,14 @@ public class DummyNeighbourApiService implements  NeighbourApiService {
         neighbours.get(neighbours.indexOf(neighbourToDelete)).setFavorite(false);
         getFavoriteNeighbours().remove(neighbourToDelete);
     }
+
+    @Override
+    public Neighbour getNeighbourById(int id) {
+        for (Neighbour n: getNeighbours()) {
+            if(n.getId() == id) {
+             return n;
+            }
+        }
+        return null;
+    }
 }

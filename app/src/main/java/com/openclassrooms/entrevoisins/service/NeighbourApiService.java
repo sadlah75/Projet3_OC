@@ -52,4 +52,10 @@ public interface NeighbourApiService {
      */
     void deleteFavoriteNeighbour(Neighbour neighbourToDelete);
 
+    /**
+     *
+     * @param id
+     * @return
+     */
+    Neighbour getNeighbourById(int id);
 }
