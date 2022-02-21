@@ -7,11 +7,6 @@ Projet 3 dans le cadre de la formation Développeur Android - OpenClassrooms.
 "Entrevoisins est une application permettant à des utilisateurs d'avoir des informations leur concernant, afin de pouvoir se rendre des services.
 L'application se propose d'afficher une liste de voisins, avec comme fonctionnalités, la possibilité d'afficher les détails d'un voisin et de l'ajouter comme favoris."
 
-
-## Statut
-
-Projet en cours de validation ...
-
 ## Installation
 
 Télécharger Android Studio à l'adresse suivante : https://developer.android.com/studio .
